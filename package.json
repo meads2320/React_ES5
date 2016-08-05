@@ -1,0 +1,35 @@
+{
+  "name": "react_es5",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meads2320/React_ES5.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/meads2320/React_ES5/issues"
+  },
+  "homepage": "https://github.com/meads2320/React_ES5#readme",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "browserify": "11.1.0",
+    "flux": "^2.0.3",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-connect": "^5.0.0",
+    "gulp-eslint": "^3.0.1",
+    "gulp-open": "^2.0.0",
+    "jquery": "^3.1.0",
+    "lodash": "^4.14.1",
+    "react": "^0.13.3",
+    "react-router": "^0.13.3",
+    "reactify": "^1.1.1",
+    "vinyl-source-stream": "^1.1.0"
+  }
+}
