@@ -17,7 +17,7 @@ var AuthorPage = React.createClass({
 
 
         return ( 
-            <div>
+            <div className="container jumbotron">
                 <h1>Authors</h1>
                 <AuthorList authors={this.state.authors} />
             </div>
