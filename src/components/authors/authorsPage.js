@@ -11,7 +11,16 @@ var AuthorPage = React.createClass({
             authors: AuthorStore.getAllAuthors()
         };
     },
-  
+
+    _onChange: function()  {
+        this.setState({ authors: AuthorStore.getAllAuthors() });
+    },
+    componentWillMount : function() {
+        AuthorStore.addChangeListener(this._onChange);
+    },
+    componentWillUnMount : function() {
+         AuthorStore.removeChangeListener(this._onChange);
+    },
     render: function()  {
         return ( 
             <div className="container jumbotron">

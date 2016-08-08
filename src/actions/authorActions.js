@@ -11,6 +11,24 @@ var AuthorActions = {
             actionType : ActionTypes.CREATE_AUTHOR,
             author : newAuthor
         });
+    },
+     updateAuthor : function(author) {
+        var existingAuthor = AuthorApi.saveAuthor(author);
+
+        //Notifies dispatcher to let all stores that an author has been created 
+        Dispatcher.dispatch({
+            actionType : ActionTypes.UPDATE_AUTHOR,
+            author : existingAuthor
+        });
+    },
+     deleteAuthor : function(authorId) {
+        var existingAuthor = AuthorApi.deleteAuthor(authorId);
+
+        //Notifies dispatcher to let all stores that an author has been created 
+        Dispatcher.dispatch({
+            actionType : ActionTypes.DELETE_AUTHOR,
+            id : authorId
+        });
     }
 };
 

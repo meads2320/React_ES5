@@ -12,6 +12,11 @@ var routes = (
          <Route name="authors" handler={require('./components/authors/authorsPage')} />
          <Route name="addAuthor" handler={require('./components/authors/manageAuthorsPage')} />
          <Route name="manageAuthor" path="author/:id" handler={require('./components/authors/manageAuthorsPage')} />
+
+         <Route name="courses" handler={require('./components/courses/coursePage')} />
+         <Route name="addCourse" handler={require('./components/courses/manageCoursePage')} />
+         <Route name="manageCourse" path="courses/:id" handler={require('./components/courses/manageCoursePage')} />
+
          <Route name="about" handler={require('./components/about/aboutPage')} />    
          <Redirect from="about-us" to="about" />
          <Redirect from="awthers" to="authors" />

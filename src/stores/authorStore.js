@@ -25,6 +25,7 @@ var AuthorStore = objectAssign({},EventEmitter.prototype, {
 });
 
 Dispatcher.register(function(action) {
+
     // called on every single action
     switch(action.actionType){
           case ActionTypes.INITIALIZE : 
@@ -35,8 +36,19 @@ Dispatcher.register(function(action) {
             _authors.push(action.author);
             AuthorStore.emitChange();
             break;
-      
+       case ActionTypes.UPDATE_AUTHOR : 
+            var existingAuthor = _.find(_authors, { id : action.author.id });
+            var existingAuthorIndex = _.indexOf(_authors, existingAuthor);
+            _authors.splice(existingAuthorIndex, 1, existingAuthor);
+
+            AuthorStore.emitChange();
+            break;
+        case ActionTypes.DELETE_AUTHOR : 
+             _.remove(_authors, function(author) { return action.id === author.id });
+            AuthorStore.emitChange();
+            break;
     }
 });
+
 
 module.exports = AuthorStore;
