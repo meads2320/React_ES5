@@ -2,10 +2,14 @@ var React = require('react');
 var Router = require('react-router');
 var Link = Router.Link;
 var AuthorForm = require('./AuthorForm');
-var AuthorApi = require('../../api/AuthorApi');
+var AuthorActions = require('../../actions/authorActions');
+var AuthorStore = require('../../stores/authorStore');
+
 var Router = require('react-router');
 var toastr = require('toastr');
 // controller view 
+//this controller should interact with stores 
+//holds data in state 
 
 var ManageAuthorsPage = React.createClass({
     //defined as an array 
@@ -30,7 +34,7 @@ var ManageAuthorsPage = React.createClass({
     componentWillMount : function()  {
         var authorId = this.props.params.id; // from path 'author:id'
         if(authorId) {
-            this.setState({ author: AuthorApi.getAuthorById(authorId)});
+            this.setState({ author: AuthorStore.getAuthorById(authorId)});
         }
     },
     setAuthorState: function(event)  {
@@ -60,7 +64,7 @@ var ManageAuthorsPage = React.createClass({
         event.preventDefault();
         if(!this.authorFormIsValid()) return;
 
-        AuthorApi.saveAuthor(this.state.author);
+        AuthorActions.createAuthor(this.state.author);
         toastr.success('Author saved sucessfully');
         this.setState( { dirty : false});
         this.transitionTo('authors');
